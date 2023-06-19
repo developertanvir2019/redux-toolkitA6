@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import webp from '../images/git.webp'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBlogs } from '../features/blogs/blogsSlice';
+import Loading from './Loading';
+import PostItem from './PostItem';
 const Posts = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchBlogs());
+    }, [dispatch]);
+
+    const { blogs, isLoading, isError, error } = useSelector((state) => state?.posts);
+    console.log(blogs);
+
+    let content;
+
+    if (isLoading) content = <Loading />;
+    if (!isLoading && isError)
+        content = <div className="col-span-12">{error}</div>;
+
+    if (!isError && !isLoading && blogs?.length === 0) {
+        content = <div className="col-span-12">No blogs found!</div>;
+    }
+
+    if (!isError && !isLoading && blogs?.length > 0) {
+        content = blogs.map((blog) => (
+            <PostItem key={blog.id} blog={blog} />
+        ));
+    }
+
     return (
         <main class="post-container" id="lws-postContainer">
-            <div class="lws-card">
-                <a href="post.html">
-                    <img src={webp} class="lws-card-image" alt="" />
-                </a>
-                <div class="p-4">
-                    <div class="lws-card-header">
-                        <p class="lws-publishedDate">2023-05-01</p>
-                        <p class="lws-likeCount"><i class="fa-regular fa-thumbs-up"></i>100</p>
-                    </div>
-                    <a href="post.html" class="lws-postTitle"> Top Github Alternatives </a>
-                    <div class="lws-tags"><span>#python,</span> <span>#tech,</span> <span>#git</span></div>
-                    <div class="flex gap-2 mt-4">
-                        <span class="lws-badge"> Saved </span>
-                    </div>
-                </div>
-            </div>
+
+            {content}
 
         </main>
     );

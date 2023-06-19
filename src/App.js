@@ -1,18 +1,19 @@
 import React from 'react';
 import './App.css';
 import Navbar from './Components/Navbar';
-import SideNav from './Components/SideNav';
-import Posts from './Components/Posts';
+import Home from './page/Home';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import Blog from './page/Blog';
 
 function App() {
   return (
-    <body>
+    <BrowserRouter>
       <Navbar />
-      <section class="wrapper">
-        <SideNav />
-        <Posts />
-      </section>
-    </body>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog/:blogId" element={<Blog />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
