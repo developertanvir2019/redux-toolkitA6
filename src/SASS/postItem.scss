@@ -1,0 +1,75 @@
+.lws-card {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 28rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+    .lws-card-image {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .lws-card-header {
+        margin-bottom: 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        --tw-text-opacity: 1;
+        color: rgb(107 114 128 / var(--tw-text-opacity));
+    }
+
+    .lws-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        border-radius: 9999px;
+        background-color: rgb(7 166 186 / 0.1);
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        font-weight: 600;
+        --tw-text-opacity: 1;
+        color: rgb(7 166 186 / var(--tw-text-opacity));
+    }
+
+    .lws-postTitle {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        --tw-text-opacity: 1;
+        color: rgb(17 24 39 / var(--tw-text-opacity));
+    }
+
+    .lws-tags {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+
+        > :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        --tw-text-opacity: 1;
+        color: rgb(107 114 128 / var(--tw-text-opacity));
+    }
+
+
+}
