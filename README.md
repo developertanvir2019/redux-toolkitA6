@@ -1,1 +1,1 @@
-this projec is based on redux. we focus on redux in this project
+this projec is based on redux. I just focus on redux in this project
